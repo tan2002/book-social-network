@@ -9,6 +9,7 @@ import { RequestBuilder } from '../../request-builder';
 import { PageResponseBorrowedBookResponse } from '../../models/page-response-borrowed-book-response';
 
 export interface FindAllBorrowedBooks$Params {
+  size?:number ;
   page?: number;
 }
 
@@ -16,6 +17,7 @@ export function findAllBorrowedBooks(http: HttpClient, rootUrl: string, params?:
   const rb = new RequestBuilder(rootUrl, findAllBorrowedBooks.PATH, 'get');
   if (params) {
     rb.query('page', params.page, {});
+    rb.query('size',params.size,{})
   }
 
   return http.request(
