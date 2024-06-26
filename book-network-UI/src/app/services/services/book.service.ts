@@ -347,4 +347,7 @@ export class BookService extends BaseService {
     );
   }
 
+  findAllBooks(param: {size: number; page: number}) {
+
+  }
 }
