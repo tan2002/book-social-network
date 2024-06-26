@@ -3,11 +3,13 @@ import {Router} from "@angular/router";
 import {AuthenticationService} from "../../services/services/authentication.service";
 import {skipUntil} from 'rxjs';
 import {CodeInputModule} from "angular-code-input";
+import {NgIf} from "@angular/common";
 @Component({
   selector: 'app-activate-account',
   standalone: true,
   imports: [
-    CodeInputModule
+    CodeInputModule,
+    NgIf
   ],
   templateUrl: './activate-account.component.html',
   styleUrl: './activate-account.component.scss'
