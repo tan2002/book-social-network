@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Tanmay@2002
+      MYSQL_DATABASE: book_social_network
+      MYSQL_USER: root
+      MYSQL_PASSWORD: Tanmay@2002
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - book-social-network
+
+  mail-dev:
+    container_name: mail-dev-bsn
+    image: maildev/maildev
+    ports:
+      - "1080:1080"
+      - "1025:1025"
+
+networks:
+  book-social-network:
+    driver: bridge
+
+volumes:
+  mysql_data:
+    driver: local
