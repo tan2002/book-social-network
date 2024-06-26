@@ -1,2 +1,18 @@
-package org.tan.booknetwork.book;public class BorrowedBookResponse {
+package org.tan.booknetwork.book;
+
+import lombok.*;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class BorrowedBookResponse {
+    private Integer id;
+    private String title;
+    private String authorName;
+    private String isbn;
+    private double rate;
+    private boolean returned;
+    private boolean returnedApproved;
 }
