@@ -5,14 +5,20 @@ import {Router} from "@angular/router";
 import {AuthenticationService} from "../../services/services/authentication.service";
 import {AuthenticationResponse} from "../../services/models/authentication-response";
 import {TokenService} from "../../services/token/token.service";
+import {NgForOf, NgIf} from "@angular/common";
+import {HttpClientModule} from "@angular/common/http";
 
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
+  providers:[AuthenticationService],
   imports: [
-    FormsModule
+    FormsModule,
+    NgForOf,
+    NgIf,
+    HttpClientModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
@@ -34,16 +40,16 @@ export class LoginComponent {
       this.authService.authenticate({
         body:this.authRequest
       }).subscribe({
-        next:(res:AuthenticationResponse)=>{
+        next:(res)=>{
           this.tokenService.token = res.token as string;
-          this.router.navigate(['books'])
+          this.router.navigate(['books']);
         },
         error:(err)=>{
           console.log(err);
-          if(err.error.formatValidationErrors){
-            this.errorMsg = err.formatValidationErrors
+          if(err.error.validationErrors){
+            this.errorMsg = err.error.ValidationErrors();
           }else{
-            this.errorMsg.push(err.error.error)
+            this.errorMsg.push(err.error.errorMsg);
           }
         }
       })
