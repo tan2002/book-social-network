@@ -25,6 +25,7 @@ public class BaseEntity {
     @Id
     @GeneratedValue
     private Integer id;
+
     @CreatedDate
     @Column(insertable = false,updatable = false)
     private LocalDateTime createdDate;
