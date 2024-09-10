@@ -39,7 +39,7 @@ Follow these steps to set up the project:
     ```
 2. Navigate to the backend directory:
     ```bash
-    cd book-social-network/backend
+    cd book-network
     ```
 3. Configure your `application.properties` file with your database credentials and other settings.
 4. Build and run the application:
@@ -51,7 +51,7 @@ Follow these steps to set up the project:
 
 1. Navigate to the frontend directory:
     ```bash
-    cd book-social-network/frontend
+    cd book-network-UI
     ```
 2. Install dependencies:
     ```bash
